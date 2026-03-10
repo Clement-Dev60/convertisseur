@@ -155,4 +155,10 @@ function swap() {
     let temp = fromSelect.value
     fromSelect.value = toSelect.value
     toSelect.value = temp
+    localStorage.setItem("fromCurrency", fromSelect.value)
+    updateOptions()
+    convert()
+    localStorage.setItem("toCurrency", toSelect.value)
+    updateOptions()
+    convert()
 }
