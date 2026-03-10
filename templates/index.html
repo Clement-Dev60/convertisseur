@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Convertisseur</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <a href="{{ url_for('settings') }}" id="settings-button">
+        <ion-icon id="settings" name="settings-outline"></ion-icon>
+    </a>
+
+    <div class="container">
+
+        <h1>💱 Convertisseur</h1>
+        <div class="input-error">
+            <input id="amount" type="number" placeholder="Montant">
+            <p id="error"></p>
+        </div>
+        <select id="from">
+            {% for code, name in currencies.items() %}
+            <option value="{{ code }}">{{ name }}</option>
+            {% endfor %}
+        </select>
+        <button class="swap-btn" type="button" onclick="swap()">🔄</button>
+        <select id="to">
+            {% for code, name in currencies.items() %}
+            <option value="{{ code }}">{{ name }}</option>
+            {% endfor %}
+        </select>
+        <h2 id="rate">Taux de conversion :
+            <br>
+
+        </h2>
+        <button id="submit" type="button" onclick="convert()">Convertir</button>
+
+        <h2 id="result"></h2>
+
+    </div>
+
+    <script src="../static/script.js"></script>
+
+</body>
+
+</html>
