@@ -30,7 +30,9 @@
         <button class="swap-btn" type="button" onclick="swap()">🔄</button>
         <select id="to">
             {% for code, name in currencies.items() %}
-            <option value="{{ code }}">{{ name }}</option>
+            <option value="{{ code }}" {% if code=="USD" %}selected{% endif %}>
+                {{ name }}
+            </option>
             {% endfor %}
         </select>
         <h2 id="rate">Taux de conversion :
