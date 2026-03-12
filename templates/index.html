@@ -7,10 +7,10 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='coin.jpg') }}">
 </head>
 
 <body>
-
     <a href="{{ url_for('settings') }}" id="settings-button">
         <ion-icon id="settings" name="settings-outline"></ion-icon>
     </a>
@@ -35,8 +35,8 @@
             </option>
             {% endfor %}
         </select>
-        <h2 id="rate">Taux de conversion :
-            <br>
+        <h3>Taux de conversion :</h3>
+        <h2 id="rate">
 
         </h2>
         <button id="submit" type="button" onclick="convert()">Convertir</button>
@@ -44,8 +44,8 @@
         <h2 id="result"></h2>
 
     </div>
-
-    <script src="../static/script.js"></script>
+    <div class="coin-cursor" id="coin-cursor">€</div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 

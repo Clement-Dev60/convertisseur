@@ -7,6 +7,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='coin.jpg') }}">
     <title>Settings</title>
 </head>
 
@@ -16,7 +17,7 @@
         <h1>Paramètres</h1>
         <button id="themeToggle">🌙 Dark Mode</button>
     </div>
-
+    <div class="coin-cursor" id="coin-cursor">€</div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 

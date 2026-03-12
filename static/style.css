@@ -7,6 +7,7 @@ body {
 	height: 100vh;
 	margin: 0;
 	transition: 0.3s;
+	cursor: none !important;
 }
 
 /* CONTAINER */
@@ -41,8 +42,14 @@ select {
 	font-size: 14px;
 	background: #fafafa;
 	transition: 0.2s;
+	cursor: none;
 }
 
+input:hover,
+select:hover {
+	border: 1px solid;
+	border-color: #ffffff;
+}
 input:focus,
 select:focus {
 	outline: none;
@@ -59,7 +66,7 @@ button {
 	background: #5a5a5a;
 	color: white;
 	font-size: 15px;
-	cursor: pointer;
+	cursor: none;
 	transition: 0.2s;
 }
 
@@ -167,6 +174,7 @@ body.dark button:hover {
 #rate {
 	font-size: 14px;
 	opacity: 0.7;
+	margin-top: -20px;
 }
 
 /* Settings */
@@ -226,4 +234,117 @@ body.dark button:hover {
 #back {
 	font-size: 22px; /* taille de l'icône */
 	vertical-align: middle;
+}
+
+/* Cursor */
+
+.coin-cursor {
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	background: radial-gradient(
+		circle at 35% 35%,
+		#fff9d0 0%,
+		gold 40%,
+		#b8860b 100%
+	);
+	box-shadow: 0 0 0 2px #b8860b, 0 0 12px rgba(245, 200, 66, 0.6),
+		inset 0 1px 3px rgba(255, 255, 255, 0.5),
+		inset 0 -1px 3px rgba(0, 0, 0, 0.4);
+	position: fixed;
+	pointer-events: none;
+	transform: translate(-50%, -50%);
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+	font-weight: 900;
+	color: #b8860b;
+	font-family: serif;
+	transition: width 0.15s, height 0.15s, box-shadow 0.15s;
+}
+
+body.hovering .coin-cursor {
+	width: 36px;
+	height: 36px;
+	font-size: 15px;
+	box-shadow: 0 0 0 2px #b8860b, 0 0 24px rgba(245, 200, 66, 0.9),
+		0 0 48px rgba(245, 200, 66, 0.4), inset 0 1px 3px rgba(255, 255, 255, 0.5),
+		inset 0 -1px 3px rgba(0, 0, 0, 0.4);
+}
+
+body.clicking .coin-cursor {
+	width: 20px;
+	height: 20px;
+	font-size: 9px;
+}
+
+body.spinning .coin-cursor {
+	animation: coinFlip 0.5s ease-in-out;
+}
+
+#coin-cursor {
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	background: radial-gradient(
+		circle at 35% 35%,
+		#fff9d0 0%,
+		gold 40%,
+		#b8860b 100%
+	);
+	box-shadow: 0 0 0 2px #b8860b, 0 0 12px rgba(245, 200, 66, 0.6),
+		inset 0 1px 3px rgba(255, 255, 255, 0.5),
+		inset 0 -1px 3px rgba(0, 0, 0, 0.4);
+	position: fixed !important;
+	pointer-events: none;
+	transform: translate(-50%, -50%);
+	z-index: 99999 !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+	font-weight: 900;
+	color: #b8860b;
+	font-family: serif;
+	transition: width 0.15s, height 0.15s, box-shadow 0.15s;
+}
+
+@keyframes coinFlip {
+	0% {
+		transform: translate(-50%, -50%) rotateY(0deg);
+	}
+	25% {
+		transform: translate(-50%, -50%) rotateY(90deg) scaleX(0.1);
+	}
+	50% {
+		transform: translate(-50%, -50%) rotateY(180deg);
+	}
+	75% {
+		transform: translate(-50%, -50%) rotateY(270deg) scaleX(0.1);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotateY(360deg);
+	}
+}
+
+.sparkle {
+	position: fixed;
+	pointer-events: none;
+	z-index: 9998;
+	border-radius: 50%;
+	background: gold;
+	animation: sparkleAnim 0.6s ease-out forwards;
+}
+
+@keyframes sparkleAnim {
+	0% {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0) translateY(-20px);
+	}
 }
