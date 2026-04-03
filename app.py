@@ -19,6 +19,7 @@ currencies = {
     "SEK": "🇸🇪 Couronne suédoise",
     "NOK": "🇳🇴 Couronne norvégienne",
     "DKK": "🇩🇰 Couronne danoise",
+    "MAD": "🇲🇦 Dirham marocain",
 }
 
 
